@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<module xmlns="urn:jboss:module:1.1" name="com.rabbitmq">
+
+    <resources>
+        <resource-root path="rabbitmq-jms-1.6.0-SNAPSHOT.jar"/>
+        <resource-root path="amqp-client-3.6.5.jar" />
+        <resource-root path="geronimo-jms_1.1_spec-1.1.1.jar" />
+    </resources>
+    <dependencies>
+       <!-- add the dependencies required by JMS Bridge code                -->
+       <module name="javax.api" />
+       <module name="javax.transaction.api"/>
+       <module name="org.slf4j"/>
+    </dependencies>
+</module>
