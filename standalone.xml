@@ -314,40 +314,44 @@
                         <property name="uri" value="amqp://user1:password1@margffoy-tuay.com:5672/videos"/>
                     </environment>
                 </object-factory>
+                <object-factory name="java:global/RMQAppQueue" module="com.rabbitmq" class="com.rabbitmq.jms.admin.RMQObjectFactory">
+                    <environment>
+                        <property name="className" value="javax.jms.Queue"/>
+                        <property name="amqp" value="true"/>
+                        <property name="amqpExchangeName" value="app1"/>
+                        <property name="amqpRoutingKey" value="app1"/>
+                        <property name="amqpQueueName" value="app1"/>
+                        <property name="destinationName" value="app1"/>
+                    </environment>
+                </object-factory>
                 <object-factory name="java:global/RMQTopicAllVideos" module="com.rabbitmq" class="com.rabbitmq.jms.admin.RMQObjectFactory">
                     <environment>
                         <property name="className" value="javax.jms.Topic"/>
                         <property name="amqp" value="true"/>
-                        <property name="amqpExchangeName" value="videos.requests"/>
-                        <property name="amqpRoutingKey" value="videos.general.*"/>
+                        <property name="amqpExchangeName" value="videos.test"/>
+                        <property name="amqpRoutingKey" value="videos.general"/>
                         <property name="amqpQueueName" value="app1"/>
+                        <property name="destinationName" value="app1"/>
                     </environment>
                 </object-factory>
                 <object-factory name="java:global/RMQAllVideosLocal" module="com.rabbitmq" class="com.rabbitmq.jms.admin.RMQObjectFactory">
                     <environment>
                         <property name="className" value="javax.jms.Topic"/>
                         <property name="amqp" value="true"/>
-                        <property name="amqpExchangeName" value="videos.requests"/>
+                        <property name="amqpExchangeName" value="videos.test"/>
                         <property name="amqpRoutingKey" value="videos.general.app1"/>
                         <property name="amqpQueueName" value="app1"/>
+                        <property name="destinationName" value="app1"/>
                     </environment>
                 </object-factory>
                 <object-factory name="java:global/RMQTopicTerrorVideos" module="com.rabbitmq" class="com.rabbitmq.jms.admin.RMQObjectFactory">
                     <environment>
                         <property name="className" value="javax.jms.Topic"/>
                         <property name="amqp" value="true"/>
-                        <property name="amqpExchangeName" value="videos.requests"/>
+                        <property name="amqpExchangeName" value="videos.test"/>
                         <property name="amqpRoutingKey" value="videos.terror.*"/>
                         <property name="amqpQueueName" value="app1"/>
-                    </environment>
-                </object-factory>
-                <object-factory name="java:global/RMQLocalTopic" module="com.rabbitmq" class="com.rabbitmq.jms.admin.RMQObjectFactory">
-                    <environment>
-                        <property name="className" value="javax.jms.Topic"/>
-                        <property name="amqp" value="true"/>
-                        <property name="amqpExchangeName" value="videos.list"/>
-                        <property name="amqpRoutingKey" value="#.java"/>
-                        <property name="amqpQueueName" value="test"/>
+                        <property name="destinationName" value="app1"/>
                     </environment>
                 </object-factory>
             </bindings>
